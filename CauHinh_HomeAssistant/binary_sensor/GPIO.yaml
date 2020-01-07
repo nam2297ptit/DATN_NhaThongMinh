@@ -1,0 +1,4 @@
+  - platform: rpi_gpio
+    ports:
+      12: input
+    invert_logic: false

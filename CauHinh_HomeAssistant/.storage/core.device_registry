@@ -1,0 +1,328 @@
+{
+    "data": {
+        "devices": [
+            {
+                "area_id": "fb2b034fa5a3434faadb9592f2fa9e1e",
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "42d92e058c7f42f8b3718fb6396168b3",
+                "identifiers": [
+                    [
+                        "cast",
+                        "9cf5f833bb6fd7f289877e0001cfacba"
+                    ]
+                ],
+                "manufacturer": "Unknown manufacturer",
+                "model": "Google Home",
+                "name": "Ph\u00f2ng kh\u00e1ch",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": "fb2b034fa5a3434faadb9592f2fa9e1e",
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "b32eaa1fc8854b688b09fdbc118648a4",
+                "identifiers": [
+                    [
+                        "cast",
+                        "4e7fee2cf18d94e55a227e6d4cd35b35"
+                    ]
+                ],
+                "manufacturer": "Unknown manufacturer",
+                "model": "Google Home",
+                "name": "Ph\u00f2ng kh\u00e1ch",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "b84ae672d9294915bef2964ab5274b07",
+                "identifiers": [
+                    [
+                        "cast",
+                        "efb6a6b7e6c142d795bf677e39303302"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Home",
+                "name": "Ph\u00f2ng kh\u00e1ch 2",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "4e389039291245f09d0b0cab2277c7e2",
+                "identifiers": [
+                    [
+                        "cast",
+                        "45ea5af94efab46ec7f309309be53ab8"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Home",
+                "name": "GoogleHome9797",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "2cb9f2c5dfbf46a4ae287e6b1fa7c72d",
+                "identifiers": [
+                    [
+                        "cast",
+                        "4d6a8e2dd8348c0d65c4e32a8c9aabea"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Home",
+                "name": "GoogleHome7594",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "f43c76a4dbef4dd692efcd6a30eeaab9",
+                "identifiers": [
+                    [
+                        "cast",
+                        "5b5c2901a6475d6489f6fad412c31874"
+                    ]
+                ],
+                "manufacturer": "Unknown manufacturer",
+                "model": "Google Home",
+                "name": "Living Room",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "351e453c11af472d976508724c337b03",
+                "identifiers": [
+                    [
+                        "cast",
+                        "69175a161ea23b7db3201ca3226ceff2"
+                    ]
+                ],
+                "manufacturer": "Unknown manufacturer",
+                "model": "Google Home Mini",
+                "name": "Gg mini",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "866aa0b7e5a94510aeda4e13dc6ab130",
+                "identifiers": [
+                    [
+                        "cast",
+                        "e518b7413c1cf5fefc7fd74993a08602"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Home",
+                "name": "Ph\u00f2ng kh\u00e1ch 3",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "9d8be0c3e7da4cdfbf6b8296d829d734",
+                "identifiers": [
+                    [
+                        "cast",
+                        "c25e0500c6004361a0caf4e837e4c540"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Home",
+                "name": "Loa th\u00f4ng minh",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "d2ad1de83d5e4d8c8d2c412bd5aa77f4",
+                "identifiers": [
+                    [
+                        "cast",
+                        "9d8770104d08c3af7d9c772414953af1"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Home",
+                "name": "Ph\u00f2ng kh\u00e1ch 2",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "c1619a3a2dad46da84dec0ef35003ee8",
+                "identifiers": [
+                    [
+                        "cast",
+                        "77cf76f9d78079270e534a61e148262b"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Home",
+                "name": "Ph\u00f2ng kh\u00e1ch",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "e88034cb84df49feb98886e036f2395d",
+                "identifiers": [
+                    [
+                        "cast",
+                        "09c38e28591960ae37f41e25afeb272a"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Home",
+                "name": "GoogleHome4177",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "3472fc63723640c5b8d6c65ddaa6efd3",
+                "identifiers": [
+                    [
+                        "cast",
+                        "9ed5c59044decc1462a39c13eecefeb5"
+                    ]
+                ],
+                "manufacturer": "Unknown manufacturer",
+                "model": "Google Home",
+                "name": "Loa Gg Home",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "4ff9fe64db9b4b23941dbc16a1935dba",
+                "identifiers": [
+                    [
+                        "cast",
+                        "61f226b1af808ab81bdf6b421ef338dd"
+                    ]
+                ],
+                "manufacturer": "Unknown manufacturer",
+                "model": "Google Home",
+                "name": "Ph\u00f2ng kh\u00e1ch",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "bf97b825d5014466b3ba415cc532c041",
+                "identifiers": [
+                    [
+                        "cast",
+                        "bb6b0b5ad878de42cce9601fac59eabd"
+                    ]
+                ],
+                "manufacturer": "Unknown manufacturer",
+                "model": "Google Home",
+                "name": "Ph\u00f2ng kh\u00e1ch speaker",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "1504d7be772942f181c9feff4c4ca177"
+                ],
+                "connections": [],
+                "id": "2ea9a288c1e649e48854b072afd4fc27",
+                "identifiers": [
+                    [
+                        "cast",
+                        "bc4ad9f87efad6e9dcfbed70da5ee8f8"
+                    ]
+                ],
+                "manufacturer": "Unknown manufacturer",
+                "model": "Google Home",
+                "name": "Ph\u00f2ng kh\u00e1ch",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            }
+        ]
+    },
+    "key": "core.device_registry",
+    "version": 1
+}

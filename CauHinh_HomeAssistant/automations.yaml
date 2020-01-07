@@ -1,0 +1,395 @@
+- alias: Garage door
+  trigger:
+  - platform: state
+    entity_id: cover.garage_door
+    to: closed
+    for:
+      seconds: 7
+  - platform: state
+    entity_id: cover.garage_door
+    to: open
+    for:
+      seconds: 7
+  action:
+  - service: cover.stop_cover
+    entity_id: cover.garage_door
+  id: c2728cf5f9244467b17588e138bc2c4c
+- alias: Main door
+  trigger:
+  - platform: state
+    entity_id: cover.livingroom_door
+    to: open
+    for:
+      seconds: 10
+  - platform: state
+    entity_id: cover.livingroom_door
+    to: closed
+    for:
+      seconds: 10
+  action:
+  - service: cover.stop_cover
+    entity_id: cover.livingroom_door
+  id: a9c4dba0524a4254bcd11641f4971b9d
+- alias: Bedroom window
+  trigger:
+  - platform: state
+    entity_id: cover.bedroom_window
+    to: closed
+    for:
+      milliseconds: 300
+  - platform: state
+    entity_id: cover.bedroom_window
+    to: open
+    for:
+      milliseconds: 300
+  action:
+  - service: cover.stop_cover
+    entity_id: cover.bedroom_window
+  id: cc728faf8d5142bf813e7b06d16bfa7b
+- id: '1573980955469'
+  alias: Bấm chuông
+  trigger:
+  - entity_id: binary_sensor.input
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.yellow
+    service: switch.turn_on
+  - data:
+      payload: detect
+      topic: home/detect
+    service: mqtt.publish
+  - data:
+      message: Mời nhìn vào camera
+    service: tts.google_translate_say
+- id: '1573982232734'
+  alias: Nhận diện đúng
+  trigger:
+  - payload: ok
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - data:
+      entity_id: switch.yellow
+    service: switch.turn_off
+  - data:
+      entity_id: switch.blue
+    service: switch.turn_on
+  - data:
+      payload: emotion
+      topic: home/detect
+    service: mqtt.publish
+- id: '1573982495832'
+  alias: Nhận diện sai
+  trigger:
+  - payload: unknown
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - data:
+      entity_id: switch.red
+    service: switch.turn_on
+  - data:
+      entity_id: switch.yellow
+    service: switch.turn_off
+  - data:
+      message: Xin vui lòng chờ một lát
+    service: tts.google_translate_say
+- id: '1573982683688'
+  alias: Tự tắt đèn xanh
+  trigger:
+  - entity_id: switch.blue
+    for: '5'
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.blue
+    service: switch.turn_off
+- id: '1573983050820'
+  alias: Tự tắt đèn đỏ
+  trigger:
+  - entity_id: switch.red
+    for: '5'
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.red
+    service: switch.turn_off
+- id: '1573985703644'
+  alias: Nhận diện nam, 20-30
+  trigger:
+  - payload: Male,20-30
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - data:
+      message: 'Thông báo: có khách ngoài cửa. Giới tính: nam, Độ tuổi: tầm 20 đến
+        30 tuổi'
+    service: tts.google_translate_say
+- id: '1573985851759'
+  alias: Nhận diện nam,15 -20
+  trigger:
+  - payload: Male,15-20
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - data:
+      message: 'Thông báo: có khách ngoài cửa. Giới tính: nam, Độ tuổi: 15 đến 20
+        tuổi'
+    service: tts.google_translate_say
+- id: '1573986137722'
+  alias: Nhận diện nữ,15-20
+  trigger:
+  - payload: Female,15-20
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - data:
+      message: 'Thông báo: có khách ngoài cửa. Giới tính: nữ, Độ tuổi: tầm 15 đến
+        20 tuổi'
+    service: tts.google_translate_say
+- id: '1573986227361'
+  alias: Nhận diện nữ,20-30
+  trigger:
+  - payload: Female,20-30
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - data:
+      message: 'Thông báo: có khách ngoài cửa. Giới tính: nữ, Độ tuổi: tầm 20 đến
+        30 tuổi'
+    service: tts.google_translate_say
+- id: '1573986384427'
+  alias: Nhận diện nam,30-40
+  trigger:
+  - payload: Male,30-40
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - data:
+      message: 'Thông báo: có khách ngoài cửa. Giới tính: nam, Độ tuổi: tầm 30 đến
+        40 tuổi'
+    service: tts.google_translate_say
+- id: '1573986462542'
+  alias: Nhận diện nữ,30-40
+  trigger:
+  - payload: Female,30-40
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - data:
+      message: 'Thông báo: có khách ngoài cửa. Giới tính: nữ, Độ tuổi: 30 đến 40 tuổi'
+    service: tts.google_translate_say
+- id: '1574047130526'
+  alias: auto off emotion program
+  trigger:
+  - entity_id: switch.detect_emotion_program
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.detect_emotion_program
+    state: 'on'
+  action:
+  - data:
+      entity_id: switch.detect_emotion_program
+    service: switch.turn_off
+- id: '1574047221676'
+  alias: auto turn off detection program
+  trigger:
+  - entity_id: switch.detection_program
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.detection_program
+    state: 'on'
+  action:
+  - data:
+      entity_id: switch.detection_program
+    service: switch.turn_off
+- id: '1574069266249'
+  alias: 'Cảm xúc bình thường '
+  trigger:
+  - payload: Binh thuong
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - alias: ''
+    data:
+      message: Chào mừng bạn về nhà. Tôi đang sẵn sàng chờ lệnh bạn đây
+    service: tts.google_translate_say
+  - data:
+      entity_id: switch.livingroom_light
+    service: switch.turn_on
+  - data:
+      entity_id: cover.livingroom_door
+    service: cover.open_cover
+- id: '1574070439049'
+  alias: Cảm xúc vui vẻ
+  trigger:
+  - payload: Hanh phuc
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - data:
+      message: Chào mừng bạn về nhà. Trời đẹp khiến bạn vui phải không? Hãy ra lệnh
+        cho tôi bật nhạc nếu bạn muốn
+    service: tts.google_translate_say
+  - data:
+      entity_id: switch.livingroom_light
+    service: switch.turn_on
+- id: '1574070636467'
+  alias: Bật chương trình nhận diện cảm xúc
+  trigger:
+  - entity_id: switch.detect_emotion_program
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - alias: ''
+    data:
+      payload: emotion
+      topic: home/detect
+    service: mqtt.publish
+- id: '1576513737440'
+  alias: Cảm xúc khác
+  trigger:
+  - payload: Tuc gian
+    platform: mqtt
+    topic: home/result
+  - payload: Kinh tom
+    platform: mqtt
+    topic: home/result
+  - payload: Bat ngo
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - data:
+      entity_id: switch.livingroom_light
+    service: switch.turn_on
+  - data:
+      entity_id: cover.livingroom_door
+    service: cover.open_cover
+  - data:
+      message: Chào mừng bạn về nhà
+    service: tts.google_translate_say
+- id: '1576513870826'
+  alias: Cảm xúc buồn bã
+  trigger:
+  - payload: Buon ba
+    platform: mqtt
+    topic: home/result
+  condition: []
+  action:
+  - data:
+      entity_id: switch.livingroom_light
+    service: switch.turn_on
+  - data:
+      message: Có vẻ bạn không vui phải không. Bạn cần tôi giúp gì không ?
+    service: tts.google_translate_say
+  - data:
+      entity_id: cover.livingroom_door
+    service: cover.open_cover
+- id: '1576564755460'
+  alias: bật đèn 2
+  trigger:
+  - entity_id: switch.led_2
+    from: 'ON'
+    platform: state
+    to: 'OFF'
+  condition: []
+  action:
+  - data:
+      message: Đèn hai đã được bật
+    service: tts.google_translate_say
+- id: '1578234673245'
+  alias: i'm home
+  trigger:
+  - entity_id: switch.i_m_home
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      payload: motion_off
+      topic: motion
+    service: mqtt.publish
+- id: '1578234796756'
+  alias: auto off i'm home
+  trigger:
+  - entity_id: switch.i_m_home
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.i_m_home
+    state: 'on'
+  action:
+  - data:
+      entity_id: switch.i_m_home
+    service: switch.turn_off
+- id: '1578234888544'
+  alias: i'm leaving
+  trigger:
+  - entity_id: switch.i_m_leaving
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      payload: motion_on
+      topic: motion
+    service: mqtt.publish
+- id: '1578235030041'
+  alias: auto off i'm leaving
+  trigger:
+  - entity_id: switch.i_m_leaving
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.i_m_leaving
+    state: 'on'
+  action:
+  - data:
+      entity_id: switch.i_m_leaving
+    service: switch.turn_off
+- id: '1578236237572'
+  alias: Có kẻ đột nhập
+  trigger:
+  - payload: theft
+    platform: mqtt
+    topic: motion
+  condition: []
+  action:
+  - data:
+      message: Cảnh báo, có kẻ đột nhập
+    service: tts.google_translate_say

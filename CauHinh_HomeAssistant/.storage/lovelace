@@ -1,0 +1,298 @@
+{
+    "data": {
+        "config": {
+            "resources": [
+                {
+                    "type": "module",
+                    "url": "/local/camera-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/weather-card.js.3"
+                },
+                {
+                    "type": "module",
+                    "url": "https://cdn.jsdelivr.net/gh/bramkragten/weather-card/dist/weather-card.min.js"
+                },
+                {
+                    "type": "module",
+                    "url": "https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/custom-lovelace/swipe-card/swipe-card.js"
+                }
+            ],
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [
+                        "binary_sensor.updater",
+                        "person.tinasoft",
+                        "sun.sun"
+                    ],
+                    "cards": [
+                        {
+                            "entity": "weather.home",
+                            "type": "custom:weather-card"
+                        },
+                        {
+                            "entity": "sensor.time_date",
+                            "type": "sensor"
+                        },
+                        {
+                            "detail": 100,
+                            "entity": "sensor.weather_humidity",
+                            "graph": "line",
+                            "hours_to_show": 240,
+                            "icon": "mdi:water-percent",
+                            "name": "\u0110\u1ed9 \u1ea9m ngo\u00e0i tr\u1eddi",
+                            "theme": "Backend-selected",
+                            "type": "sensor"
+                        },
+                        {
+                            "entity": "sensor.dht_sensor_temperature",
+                            "max": 100,
+                            "min": 0,
+                            "name": "Nhi\u1ec7t \u0111\u1ed9 trong nh\u00e0",
+                            "severity": {
+                                "green": 1,
+                                "red": 0,
+                                "yellow": 0
+                            },
+                            "theme": "default",
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.weather_temperature",
+                            "graph": "line",
+                            "hours_to_show": 240,
+                            "name": "Nhi\u1ec7t \u0111\u1ed9 ngo\u00e0i tr\u1eddi",
+                            "type": "sensor"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "cover.livingroom_door"
+                                },
+                                {
+                                    "entity": "switch.livingroom_light"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Ph\u00f2ng kh\u00e1ch",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.bedroom_fan"
+                                },
+                                {
+                                    "entity": "switch.bedroom_light"
+                                },
+                                {
+                                    "entity": "switch.lamp"
+                                },
+                                {
+                                    "entity": "cover.bedroom_window"
+                                },
+                                {
+                                    "entity": "sensor.dht_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.dht_sensor_humidity"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Ph\u00f2ng ng\u1ee7",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "media_player.googlehome3829",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "camera.mjpeg_camera",
+                            "name": "Camera",
+                            "type": "custom:camera-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.garage_light"
+                                },
+                                {
+                                    "entity": "cover.garage_door"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Garage",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.bathroom_light"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.kitchen_fan"
+                                },
+                                {
+                                    "entity": "switch.kitchen_light"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Nh\u00e0 b\u1ebfp",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:home",
+                    "path": "default_view",
+                    "title": ""
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.cpu_temperature"
+                                },
+                                {
+                                    "entity": "sensor.internet_time"
+                                },
+                                {
+                                    "entity": "sensor.disk_free"
+                                },
+                                {
+                                    "entity": "sensor.disk_use"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Raspberry system",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.ipv4_address_wlan0"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Network",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:monitor-dashboard",
+                    "panel": false,
+                    "path": "",
+                    "title": "message-settings-variant-outline"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.garage_light"
+                                },
+                                {
+                                    "entity": "switch.bedroom_fan"
+                                },
+                                {
+                                    "entity": "switch.kitchen_fan"
+                                },
+                                {
+                                    "entity": "switch.kitchen_light"
+                                },
+                                {
+                                    "entity": "switch.livingroom_light"
+                                },
+                                {
+                                    "entity": "switch.red"
+                                },
+                                {
+                                    "entity": "switch.yellow"
+                                },
+                                {
+                                    "entity": "switch.blue"
+                                },
+                                {
+                                    "entity": "switch.bathroom_light"
+                                },
+                                {
+                                    "entity": "switch.bedroom_fan"
+                                },
+                                {
+                                    "entity": "switch.lamp"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.led_2"
+                                },
+                                {
+                                    "entity": "switch.led_1"
+                                }
+                            ],
+                            "title": "Socket",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.input"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.i_m_home"
+                                },
+                                {
+                                    "entity": "switch.i_m_leaving"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.detect_emotion_program"
+                                },
+                                {
+                                    "entity": "switch.detection_program"
+                                },
+                                {
+                                    "entity": "switch.led_1"
+                                },
+                                {
+                                    "entity": "switch.led_2"
+                                },
+                                {
+                                    "entity": "switch.led_3"
+                                }
+                            ],
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "",
+                    "title": "+"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

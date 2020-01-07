@@ -1,0 +1,15 @@
+- platform: rpi_gpio
+  ports:
+    11: Bedroom Light
+    9: Lamp      
+    5: Kitchen Light
+    10: Bedroom Fan
+    27: Garage Light
+    22: Kitchen Fan
+    17: Livingroom Light
+    4: Bathroom Light
+    13: Blue
+    20: Red
+    26: Yellow
+  invert_logic: 1
+

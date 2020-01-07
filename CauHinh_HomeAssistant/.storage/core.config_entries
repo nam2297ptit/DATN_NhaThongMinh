@@ -1,0 +1,57 @@
+{
+    "data": {
+        "entries": [
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "track_home": true
+                },
+                "domain": "met",
+                "entry_id": "290779946cd3451182b7f44ba831c344",
+                "options": {},
+                "source": "onboarding",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Home",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "user_id": "29825a4d2cde49519dbab16f77f5ab59"
+                },
+                "domain": "cast",
+                "entry_id": "1504d7be772942f181c9feff4c4ca177",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Google Cast",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "broker": "postman.cloudmqtt.com",
+                    "discovery": false,
+                    "password": "NwZIb4W_-NDU",
+                    "port": 14601,
+                    "username": "xaxcxxig"
+                },
+                "domain": "mqtt",
+                "entry_id": "1027834f5dd04107b8919deb61480bf1",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "postman.cloudmqtt.com",
+                "version": 1
+            }
+        ]
+    },
+    "key": "core.config_entries",
+    "version": 1
+}

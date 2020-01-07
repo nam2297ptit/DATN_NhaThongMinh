@@ -1,0 +1,9 @@
+- platform: systemmonitor
+  resources:
+    - type: ipv4_address
+      arg: wlan0
+    - type: disk_free
+      arg: /
+    - type: disk_use
+      arg: /
+

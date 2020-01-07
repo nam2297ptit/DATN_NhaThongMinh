@@ -1,0 +1,16 @@
+#--------------------------------
+  - platform: mqtt
+    command_topic: "home"
+    name: "detection program"
+#--------------------------------
+  - platform: mqtt
+    command_topic: "home"
+    name: "detect emotion program"
+#----------I'm home---------------
+  - platform: mqtt
+    command_topic: "home"
+    name: "i'm home"
+#----------im leaving------------
+  - platform: mqtt
+    command_topic: "home"
+    name: "i'm leaving"

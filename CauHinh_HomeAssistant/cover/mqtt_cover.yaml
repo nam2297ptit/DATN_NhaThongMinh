@@ -1,0 +1,30 @@
+ - platform: mqtt
+   name: Garage door
+   state_topic: "garage-door"
+   command_topic: "garage-door"
+   payload_open: "open"
+   payload_close: "closed"
+   payload_stop: "stop"
+   state_open: "open"
+   state_closed: "closed"
+#----------------------------------
+ - platform: mqtt
+   name: Livingroom door
+   state_topic: "livingroom-door"
+   command_topic: "livingroom-door"
+   payload_open: "open"
+   payload_close: "closed"
+   payload_stop: "stop"
+   state_open: "open"
+   state_closed: "closed"
+#----------------------------------
+ - platform: mqtt
+   name: Bedroom window
+   state_topic: "bedroom-window"
+   command_topic: "bedroom-window"
+   payload_open: "open"
+   payload_close: "closed"
+   payload_stop: "stop"
+   state_open: "open"
+   state_closed: "closed"
+

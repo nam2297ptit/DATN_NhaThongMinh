@@ -1,0 +1,14 @@
+{
+    "data": {
+        "persons": [
+            {
+                "device_trackers": [],
+                "id": "b92e01d40d7842a1abb27a21f54a5289",
+                "name": "tinasoft",
+                "user_id": "ff3bb12b81ec4855a47c8fc381036673"
+            }
+        ]
+    },
+    "key": "person",
+    "version": 1
+}

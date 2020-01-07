@@ -1,0 +1,24 @@
+#-----------LED 1-----------
+ - platform: mqtt
+   name: "LED 1"
+   state_topic: "led"
+   command_topic: "led"
+   qos: 0
+   payload_on: "OFF1"
+   payload_off: "ON1"
+#-----------LED 2-----------
+ - platform: mqtt
+   name: "LED 2"
+   state_topic: "led"
+   command_topic: "led"
+   qos: 0
+   payload_on: "OFF2"
+   payload_off: "ON2"
+#-----------LED 3-----------
+ - platform: mqtt
+   name: "LED 3"
+   state_topic: "home/light3"
+   command_topic: "home/light3"
+   qos: 0
+   payload_on: "ON3"
+   payload_off: "OFF3"

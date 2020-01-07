@@ -1,0 +1,468 @@
+2020-01-06 13:58:35 WARNING (Recorder) [homeassistant.components.recorder] Ended unfinished session (id=88 from 2020-01-06 06:09:04.544642)
+2020-01-06 13:58:39 ERROR (MainThread) [homeassistant.components.mqtt] Failed to connect due to exception: [Errno -3] Temporary failure in name resolution
+2020-01-06 13:58:39 WARNING (MainThread) [homeassistant.config_entries] Config entry for mqtt not ready yet. Retrying in 5 seconds.
+2020-01-06 13:58:41 ERROR (MainThread) [homeassistant.components.notify] Error setting up platform pushbullet
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/urllib3/connection.py", line 157, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/srv/homeassistant/lib/python3.7/site-packages/urllib3/util/connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/urllib3/connectionpool.py", line 672, in urlopen
+    chunked=chunked,
+  File "/srv/homeassistant/lib/python3.7/site-packages/urllib3/connectionpool.py", line 376, in _make_request
+    self._validate_conn(conn)
+  File "/srv/homeassistant/lib/python3.7/site-packages/urllib3/connectionpool.py", line 994, in _validate_conn
+    conn.connect()
+  File "/srv/homeassistant/lib/python3.7/site-packages/urllib3/connection.py", line 334, in connect
+    conn = self._new_conn()
+  File "/srv/homeassistant/lib/python3.7/site-packages/urllib3/connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x68728c90>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/srv/homeassistant/lib/python3.7/site-packages/urllib3/connectionpool.py", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/srv/homeassistant/lib/python3.7/site-packages/urllib3/util/retry.py", line 436, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.pushbullet.com', port=443): Max retries exceeded with url: /v2/devices (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x68728c90>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/notify/__init__.py", line 78, in async_setup_platform
+    platform.get_service, hass, p_config, discovery_info
+  File "/usr/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/pushbullet/notify.py", line 35, in get_service
+    pushbullet = PushBullet(config[CONF_API_KEY])
+  File "/srv/homeassistant/lib/python3.7/site-packages/pushbullet/pushbullet.py", line 43, in __init__
+    self.refresh()
+  File "/srv/homeassistant/lib/python3.7/site-packages/pushbullet/pushbullet.py", line 381, in refresh
+    self._load_devices()
+  File "/srv/homeassistant/lib/python3.7/site-packages/pushbullet/pushbullet.py", line 78, in _load_devices
+    resp_dict = self._get_data(self.DEVICES_URL)
+  File "/srv/homeassistant/lib/python3.7/site-packages/pushbullet/pushbullet.py", line 64, in _get_data
+    resp = self._session.get(url)
+  File "/srv/homeassistant/lib/python3.7/site-packages/requests/sessions.py", line 546, in get
+    return self.request('GET', url, **kwargs)
+  File "/srv/homeassistant/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/srv/homeassistant/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/srv/homeassistant/lib/python3.7/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.pushbullet.com', port=443): Max retries exceeded with url: /v2/devices (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x68728c90>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+2020-01-06 13:58:42 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/helpers/entity_platform.py", line 406, in _async_add_entity
+    await entity.async_added_to_hass()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/cover.py", line 229, in async_added_to_hass
+    await self._subscribe_topics()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/cover.py", line 343, in _subscribe_topics
+    self.hass, self._sub_state, topics
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 82, in async_subscribe_topics
+    await requested.resubscribe_if_necessary(hass, current)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 39, in resubscribe_if_necessary
+    hass, self.topic, self.message_callback, self.qos, self.encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:58:42 ERROR (MainThread) [metno] https://aa015h6buqvih86i1.api.met.no/weatherapi/locationforecast/1.9/ returned Cannot connect to host aa015h6buqvih86i1.api.met.no:443 ssl:None [Temporary failure in name resolution]
+2020-01-06 13:58:42 ERROR (MainThread) [homeassistant.components.met.weather] Retrying in 20 minutes
+2020-01-06 13:58:42 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/helpers/entity_platform.py", line 406, in _async_add_entity
+    await entity.async_added_to_hass()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/cover.py", line 229, in async_added_to_hass
+    await self._subscribe_topics()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/cover.py", line 343, in _subscribe_topics
+    self.hass, self._sub_state, topics
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 82, in async_subscribe_topics
+    await requested.resubscribe_if_necessary(hass, current)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 39, in resubscribe_if_necessary
+    hass, self.topic, self.message_callback, self.qos, self.encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:58:42 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/helpers/entity_platform.py", line 406, in _async_add_entity
+    await entity.async_added_to_hass()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/cover.py", line 229, in async_added_to_hass
+    await self._subscribe_topics()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/cover.py", line 343, in _subscribe_topics
+    self.hass, self._sub_state, topics
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 82, in async_subscribe_topics
+    await requested.resubscribe_if_necessary(hass, current)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 39, in resubscribe_if_necessary
+    hass, self.topic, self.message_callback, self.qos, self.encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:58:43 ERROR (MainThread) [homeassistant.components.yr.sensor] Retrying in 19 minutes: Cannot connect to host aa015h6buqvih86i1.api.met.no:443 ssl:None [Temporary failure in name resolution]
+2020-01-06 13:58:43 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/helpers/entity_platform.py", line 406, in _async_add_entity
+    await entity.async_added_to_hass()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/switch.py", line 136, in async_added_to_hass
+    await self._subscribe_topics()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/switch.py", line 190, in _subscribe_topics
+    "qos": self._config[CONF_QOS],
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 82, in async_subscribe_topics
+    await requested.resubscribe_if_necessary(hass, current)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 39, in resubscribe_if_necessary
+    hass, self.topic, self.message_callback, self.qos, self.encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:58:43 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/helpers/entity_platform.py", line 406, in _async_add_entity
+    await entity.async_added_to_hass()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/switch.py", line 136, in async_added_to_hass
+    await self._subscribe_topics()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/switch.py", line 190, in _subscribe_topics
+    "qos": self._config[CONF_QOS],
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 82, in async_subscribe_topics
+    await requested.resubscribe_if_necessary(hass, current)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 39, in resubscribe_if_necessary
+    hass, self.topic, self.message_callback, self.qos, self.encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:58:43 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/helpers/entity_platform.py", line 406, in _async_add_entity
+    await entity.async_added_to_hass()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/switch.py", line 136, in async_added_to_hass
+    await self._subscribe_topics()
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/switch.py", line 190, in _subscribe_topics
+    "qos": self._config[CONF_QOS],
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 82, in async_subscribe_topics
+    await requested.resubscribe_if_necessary(hass, current)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/subscription.py", line 39, in resubscribe_if_necessary
+    hass, self.topic, self.message_callback, self.qos, self.encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:58:52 WARNING (MainThread) [homeassistant.components.sensor] Setup of platform dht is taking over 10 seconds.
+2020-01-06 13:59:20 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.components.mqtt] Failed to connect due to exception: [Errno -3] Temporary failure in name resolution
+2020-01-06 13:59:21 WARNING (MainThread) [homeassistant.config_entries] Config entry for mqtt not ready yet. Retrying in 10 seconds.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:21 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 342, in async_enable_automation
+    self.async_trigger
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/__init__.py", line 474, in _async_process_trigger
+    remove = await platform.async_trigger(hass, conf, action, info)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/automation/mqtt.py", line 53, in async_trigger
+    hass, topic, mqtt_automation_listener, encoding=encoding
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 452, in async_subscribe
+    encoding,
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 848, in async_subscribe
+    await self._async_perform_subscription(topic, qos)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 884, in _async_perform_subscription
+    _raise_on_error(result)
+  File "/srv/homeassistant/lib/python3.7/site-packages/homeassistant/components/mqtt/__init__.py", line 984, in _raise_on_error
+    "Error talking to MQTT: {}".format(mqtt.error_string(result_code))
+homeassistant.exceptions.HomeAssistantError: Error talking to MQTT: The client is not currently connected.
+2020-01-06 13:59:22 WARNING (MainThread) [hass_nabucasa.iot] Unable to connect: Cannot connect to host cloud.nabucasa.com:443 ssl:None [Temporary failure in name resolution]
+2020-01-06 13:59:26 WARNING (MainThread) [hass_nabucasa.iot] Unable to connect: Cannot connect to host cloud.nabucasa.com:443 ssl:None [Temporary failure in name resolution]
+2020-01-06 13:59:31 WARNING (MainThread) [hass_nabucasa.iot] Unable to connect: Cannot connect to host cloud.nabucasa.com:443 ssl:None [Temporary failure in name resolution]
+2020-01-06 13:59:32 ERROR (MainThread) [homeassistant.components.mqtt] Failed to connect due to exception: [Errno -3] Temporary failure in name resolution
+2020-01-06 13:59:32 WARNING (MainThread) [homeassistant.config_entries] Config entry for mqtt not ready yet. Retrying in 20 seconds.
+2020-01-06 13:59:48 WARNING (MainThread) [hass_nabucasa.iot] Unable to connect: Cannot connect to host cloud.nabucasa.com:443 ssl:None [Temporary failure in name resolution]
+2020-01-06 13:59:53 ERROR (MainThread) [homeassistant.components.mqtt] Failed to connect due to exception: [Errno -3] Temporary failure in name resolution
+2020-01-06 13:59:53 WARNING (MainThread) [homeassistant.config_entries] Config entry for mqtt not ready yet. Retrying in 40 seconds.
+2020-01-06 14:00:01 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_humidity is taking over 10 seconds
+2020-01-06 14:00:16 WARNING (MainThread) [hass_nabucasa.iot] Unable to connect: Cannot connect to host cloud.nabucasa.com:443 ssl:None [Temporary failure in name resolution]
+2020-01-06 14:00:22 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-06 14:00:34 ERROR (MainThread) [homeassistant.components.mqtt] Failed to connect due to exception: [Errno -3] Temporary failure in name resolution
+2020-01-06 14:00:34 WARNING (MainThread) [homeassistant.config_entries] Config entry for mqtt not ready yet. Retrying in 80 seconds.
+2020-01-06 14:00:50 WARNING (MainThread) [hass_nabucasa.iot] Unable to connect: Cannot connect to host cloud.nabucasa.com:443 ssl:None [Temporary failure in name resolution]
+2020-01-06 14:01:34 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_humidity is taking over 10 seconds
+2020-01-06 14:01:55 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-06 14:01:55 ERROR (MainThread) [homeassistant.components.mqtt] Failed to connect due to exception: [Errno -3] Temporary failure in name resolution
+2020-01-06 14:01:55 WARNING (MainThread) [homeassistant.config_entries] Config entry for mqtt not ready yet. Retrying in 80 seconds.
+2020-01-06 14:02:04 WARNING (MainThread) [hass_nabucasa.iot] Unable to refresh token: 
+2020-01-06 14:03:07 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_humidity is taking over 10 seconds
+2020-01-06 14:03:15 ERROR (MainThread) [homeassistant.components.mqtt] Failed to connect due to exception: [Errno -3] Temporary failure in name resolution
+2020-01-06 14:03:15 WARNING (MainThread) [homeassistant.config_entries] Config entry for mqtt not ready yet. Retrying in 80 seconds.
+2020-01-06 14:03:28 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-06 14:04:36 ERROR (MainThread) [homeassistant.components.mqtt] Failed to connect due to exception: [Errno -3] Temporary failure in name resolution
+2020-01-06 14:04:36 WARNING (MainThread) [homeassistant.config_entries] Config entry for mqtt not ready yet. Retrying in 80 seconds.
+2020-01-06 14:04:39 WARNING (MainThread) [hass_nabucasa.iot] Unable to connect: Cannot connect to host cloud.nabucasa.com:443 ssl:None [Temporary failure in name resolution]
+2020-01-06 14:04:40 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_humidity is taking over 10 seconds
+2020-01-07 09:31:22 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-07 09:32:34 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_humidity is taking over 10 seconds
+2020-01-07 09:32:55 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-07 09:34:07 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_humidity is taking over 10 seconds
+2020-01-07 09:34:28 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-07 09:35:40 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_temperature is taking over 10 seconds
+2020-01-07 09:36:01 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-07 09:37:13 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_humidity is taking over 10 seconds
+2020-01-07 09:37:34 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-07 09:38:46 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_humidity is taking over 10 seconds
+2020-01-07 09:39:07 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-07 09:40:19 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_temperature is taking over 10 seconds
+2020-01-07 09:40:40 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-07 09:41:52 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_humidity is taking over 10 seconds
+2020-01-07 09:42:13 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-07 09:43:25 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_temperature is taking over 10 seconds
+2020-01-07 09:43:46 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-07 09:44:58 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_temperature is taking over 10 seconds
+2020-01-07 09:45:19 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-07 09:46:31 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_humidity is taking over 10 seconds
+2020-01-07 09:46:52 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
+2020-01-07 09:48:04 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.dht_sensor_humidity is taking over 10 seconds
+2020-01-07 09:48:25 WARNING (MainThread) [homeassistant.components.sensor] Updating dht sensor took longer than the scheduled update interval 0:00:30
